@@ -22,7 +22,8 @@ def chat(req: ChatRequest):
         "Provide empathetic responses, validate feelings, offer coping strategies, "
         "and include a safety disclaimer. If the user says they are in immediate danger or "
         "talks about self-harm, encourage them to seek immediate help and provide crisis resources."
-    )
+    )                                                                                                                                                                                                                                                                                                                        MM
+    
 
     # Build message list for ChatCompletion
     messages = [{"role": "system", "content": system_prompt}]
@@ -42,3 +43,5 @@ def chat(req: ChatRequest):
 
     assistant_text = response["choices"][0]["message"]["content"].strip()
     return {"reply": assistant_text}
+    from fastapi.staticfiles import StaticFiles
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
